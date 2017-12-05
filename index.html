@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Michael Xu">
+    <meta name="description" content="Sudoku solver">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Sudoku</title>
+  </head>
+
+  <body>
+    <h1>Sudoku Solver</h1>
+    <div class="viewport">
+      <div class="wrapper">
+        <table class="sudoku" id="sudokuBoard">
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+          <tr>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+            <td contentEditable="true"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="error-message" id="error-container"></div>
+    <button class="solve" onclick="solveButton">
+      Solve
+    </button>
+
+    <script  src="solver.js"></script>
+    <script  src="boardDisplay.js"></script>
+  </body>
+  
+
+</html>
