@@ -1,8 +1,19 @@
 var boardDisplay = {
 
-    sudokuBoard: [],
+    sudokuBoard: [
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,0]
+    ],
 
     retrieveBoard: function(){
+        this.sudokuBoard = [];
         var board = document.getElementById("sudokuBoard");
         for(var i=0;i<9;i++){
             var boardRow = board.rows[i];
@@ -25,9 +36,33 @@ var boardDisplay = {
 
     showErrorMessage: function(message){
         document.getElementById("error-container").innerHTML = message;
+    },
+
+    clearErrorMessage: function(){
+        document.getElementById("error-container").innerHTML = "";
+    },
+
+    setBoardValue: function(i,j,n){
+        this.sudokuBoard[i][j] = n;
+        console.log(i,j);
     }
 }
 
 function solveButton(){
     boardDisplay.showErrorMessage("");
+}
+
+document.onkeyup = function(e) {
+    boardDisplay.clearErrorMessage();
+    if(e.keyCode < 49 || e.keyCode > 57){
+        e.preventDefault();
+        boardDisplay.showErrorMessage("Invalid input");
+    }
+    if(e.target.tagName === "TD"){
+        var i = e.target.parentElement.rowIndex;
+        var j = e.target.cellIndex;
+        var n = Number(e.key);
+        boardDisplay.setBoardValue(i,j,n);
+    }
+    
 }
