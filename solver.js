@@ -11,14 +11,6 @@
 276/914/835
 143/578/692
 */
-console.log("test debug");
-var test1 = [1,3,2,4,5,6,7,8,9];
-var test2 = [1,3,2,9,5,6,7,8,9];
-var test3 = [1,3,2,4,5,6,7,0,9];
-var test4 = [9,3,2,4,5,6,7,8,1];
-var test5 = [4,3,2,4,2,6,7,8,9];
-
-
 
 var sudoku = {
     board: [
@@ -38,19 +30,7 @@ var sudoku = {
         [],[],[],
         [],[],[]
     ],
-
-    solution: [
-        [9,8,4,1,3,5,7,2,6],
-        [3,1,2,4,6,7,9,5,8],
-        [5,6,7,8,9,2,3,1,4],
-        [7,3,5,2,8,6,1,4,9],
-        [4,9,8,7,5,1,2,6,3],
-        [6,2,1,3,4,9,5,8,7],
-        [2,7,6,9,1,4,8,3,5],
-        [1,4,3,5,7,8,6,9,2],
-        [8,5,9,6,2,3,4,7,1]
-    ],
-
+    
     displayBoard: function(){
         var board = document.getElementById("sudokuBoard");
         this.board.forEach(function(i,idx_i){
@@ -106,11 +86,10 @@ var sudoku = {
                 if(numValues === 1 && this.board[i][j] === 0){
                     var value = this.possibleValuesBoard[i][j][0];
                     this.board[i][j] = value;
-                    setTimeout(this.displayBoard(),5000);
+                    this.displayBoard();
                     this.updatePossibleValuesBoard(i,j,value);
                     i = 0;
-                    j = 0;
-                    console.log(i,j);
+                    j = -1;
                 }
             }
         }

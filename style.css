@@ -4,6 +4,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 19px;
   font-weight: bold;
+  background-color: #faceff;
 }
 
 h1, p {
@@ -22,7 +23,7 @@ table.sudoku {
 table.sudoku td {
   height: 2em;
   width: 2em;
-  border: 1px solid #CCC;
+  border: 1px solid rgb(54, 53, 53);
   text-align: center;
   outline: none;
 }
@@ -34,14 +35,14 @@ table.sudoku tr:nth-child(3n) {
 }
 
 .solve {
-  color:  #3498db;
+  color:  #ffffff;
   border: none;
   font-size: 1em;
   padding: 10px;
   margin: 10px auto;
-  background-color: white;
+  background-color: #3498db;
   display: block;
-  border: 2px solid #3498db;
+  border: 2px solid #2e76a7;
   transition-property: all;
   transition-duration: 0.5s;
   cursor: pointer;
@@ -49,8 +50,8 @@ table.sudoku tr:nth-child(3n) {
   width: 5em;
 }
 .solve:hover {
-  color: white;
-  background-color: #3498db;
+  color: rgb(168, 167, 167);
+  background-color: #0d4164;
 }
 
 .viewport {
