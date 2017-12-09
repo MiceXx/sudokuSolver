@@ -75,7 +75,39 @@ var sudoku = {
         return possibleValues;
     },
 
+    findSolution: function(tempBoard, pvBoard, flag){
+        ///WIP
+        if(!flag){
+            retur
+        }
+//TODO
+        for(var i=0;i<9;i++){
+            for(var j=0;j<9;j++){
+                var numValues = pvBoard[i][j].length;
+                if(numValues < 1){
+                    return false;
+                }
+                if(tempBoard[i][j] === 0 && numValues === 1){
+
+                    var value = this.possibleValuesBoard[i][j][0];
+                    this.board[i][j] = value;
+
+                    this.displayBoard();
+                    this.updatePossibleValuesBoard(i,j,value);
+                    i = 0;
+                    j = -1;
+                }
+                if(numValues < 1){
+                    boardDisplay.showErrorMessage("Puzzle has no solution");
+                    return;
+                }
+            }
+        }
+        return true; //done
+    },
+
     fillSingleValueBlanks: function(){
+        this.getPossibleValuesBoard();
         for(var i=0;i<9;i++){
             for(var j=0;j<9;j++){
                 var numValues = this.possibleValuesBoard[i][j].length;
@@ -86,6 +118,7 @@ var sudoku = {
                 if(numValues === 1 && this.board[i][j] === 0){
                     var value = this.possibleValuesBoard[i][j][0];
                     this.board[i][j] = value;
+
                     this.displayBoard();
                     this.updatePossibleValuesBoard(i,j,value);
                     i = 0;
@@ -207,6 +240,10 @@ var sudoku = {
             gridIndex.uppery = 9;
         }
         return gridIndex;
+    },
+
+    setBoard: function(arr){
+        this.board = arr;
     }
 
 }

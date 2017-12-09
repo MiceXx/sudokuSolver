@@ -1,25 +1,11 @@
 var boardDisplay = {
 
     sudokuBoard: [],
-    
-    displayBoard: function(){
-        var board = document.getElementById("sudokuBoard");
-        this.sudokuBoard.forEach(function(i,idx_i){
-            var boardRow = board.rows[idx_i];
-            var temp = "|";
-            i.forEach(function(j,idx_j){
-                temp = temp + j + "|";
-                var boardCell = boardRow.children[idx_j];
-            });            
-            console.log(temp);
-        });
-        console.log();
-    },
 
     retrieveBoard: function(){
+        this.clearErrorMessage();
         var board = [];
         var rows = document.getElementById("sudokuBoard").rows;
-        this.clearErrorMessage();
         for(var i=0;i<9;i++){
             var cells = rows[i].cells;
             var tempArray = [];
@@ -38,7 +24,6 @@ var boardDisplay = {
             board.push(tempArray);
         }
         this.sudokuBoard = board;
-        this.displayBoard();
     },
 
     showErrorMessage: function(message){
@@ -54,24 +39,26 @@ var boardDisplay = {
     }
 }
 
-function solveButton(){
-    boardDisplay.showErrorMessage("");
+var boardButtons = {
+    reset: function(){
+        boardDisplay.clearErrorMessage();
+            var rows = document.getElementById("sudokuBoard").rows;
+            for(var i=0;i<9;i++){
+                var cells = rows[i].cells;
+                var tempArray = [];
+                for(var j=0;j<9;j++){
+                    cells[j].textContent = "";
+                }
+            }
+    },
+    solve: function(){
+        boardDisplay.retrieveBoard();
+        sudoku.setBoard(boardDisplay.sudokuBoard);
+        sudoku.fillSingleValueBlanks();
+    }
 }
 
 document.onkeyup = function(e) {
-    /*
-    boardDisplay.clearErrorMessage();
-    if(e.target.tagName === "TD"){
-        if(e.keyCode < 49 || e.keyCode > 57){
-            e.preventDefault();
-            boardDisplay.showErrorMessage("Invalid input");
-        }
-        var i = e.target.parentElement.rowIndex;
-        var j = e.target.cellIndex;
-        var n = Number(e.key);
-        boardDisplay.setBoardValue(i,j,n);
-    }
-    */
     if(e.target.tagName === "TD"){
         boardDisplay.retrieveBoard();
     }
