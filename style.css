@@ -73,3 +73,10 @@ table.sudoku tr:nth-child(3n) {
   color: red;
   text-align: center;
 }
+
+.resetButton{
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  margin-top: 20px;
+}
