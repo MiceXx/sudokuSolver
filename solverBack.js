@@ -84,6 +84,5 @@ Solver.prototype.solve = function () {
 			}
 		}
 	}
-
     return this.backtrack(0, -1);
 };

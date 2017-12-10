@@ -27,6 +27,7 @@ table.sudoku td {
   text-align: center;
   outline: none;
 }
+
 table.sudoku td:nth-child(3n) {
   border-right: 3px solid  #3498db;
 }
