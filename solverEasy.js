@@ -75,35 +75,27 @@ var sudoku = {
         return possibleValues;
     },
 
-    findSolution: function(tempBoard, pvBoard, flag){
-        ///WIP
-        if(!flag){
-            retur
-        }
-//TODO
+    checkPossibilitiesExist: function(){
         for(var i=0;i<9;i++){
             for(var j=0;j<9;j++){
-                var numValues = pvBoard[i][j].length;
+                var numValues = this.possibleValuesBoard[i][j].length;
                 if(numValues < 1){
                     return false;
                 }
-                if(tempBoard[i][j] === 0 && numValues === 1){
+            }
+        }
+        return true;
+    },
 
-                    var value = this.possibleValuesBoard[i][j][0];
-                    this.board[i][j] = value;
-
-                    this.displayBoard();
-                    this.updatePossibleValuesBoard(i,j,value);
-                    i = 0;
-                    j = -1;
-                }
-                if(numValues < 1){
-                    boardDisplay.showErrorMessage("Puzzle has no solution");
-                    return;
+    checkComplete: function(){
+        for(var i=0;i<9;i++){
+            for(var j=0;j<9;j++){
+                if(this.board[i][j] === 0){
+                    return false;
                 }
             }
         }
-        return true; //done
+        return true;
     },
 
     fillSingleValueBlanks: function(){
@@ -247,6 +239,7 @@ var sudoku = {
     }
 
 }
+
 
 sudoku.displayBoard();
 

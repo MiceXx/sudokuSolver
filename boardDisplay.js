@@ -53,8 +53,16 @@ var boardButtons = {
     },
     solve: function(){
         boardDisplay.retrieveBoard();
-        sudoku.setBoard(boardDisplay.sudokuBoard);
-        sudoku.fillSingleValueBlanks();
+   //     sudoku.setBoard(boardDisplay.sudokuBoard);
+   //     sudoku.fillSingleValueBlanks();
+        var solver = new Solver();
+        solver.board = boardDisplay.sudokuBoard;
+        if(solver.solve()){
+            sudoku.board = solver.board;
+            sudoku.displayBoard();
+        } else{
+            boardDisplay.showErrorMessage("This Puzzle has no solution");
+        }
     }
 }
 
