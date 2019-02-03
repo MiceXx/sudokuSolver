@@ -2,20 +2,20 @@ var boardDisplay = {
 
     sudokuBoard: [],
 
-    retrieveBoard: function(){
+    retrieveBoard: function () {
         this.clearErrorMessage();
         var board = [];
         var rows = document.getElementById("sudokuBoard").rows;
-        for(var i=0;i<9;i++){
+        for (var i = 0; i < 9; i++) {
             var cells = rows[i].cells;
             var tempArray = [];
-            for(var j=0;j<9;j++){
+            for (var j = 0; j < 9; j++) {
                 var cellValue = Number(cells[j].textContent);
-                if(cellValue > 9){
+                if (cellValue > 9) {
                     this.showErrorMessage("INVALID INPUT: Values must be between 1 and 9");
                     return;
                 }
-                else if(isNaN(cellValue)){
+                else if (isNaN(cellValue)) {
                     this.showErrorMessage("INVALID INPUT: Only numbers may be entered");
                     cellValue = 0;
                 }
@@ -26,48 +26,48 @@ var boardDisplay = {
         this.sudokuBoard = board;
     },
 
-    showErrorMessage: function(message){
+    showErrorMessage: function (message) {
         document.getElementById("error-container").innerHTML = message;
     },
 
-    clearErrorMessage: function(){
+    clearErrorMessage: function () {
         document.getElementById("error-container").innerHTML = "";
     },
 
-    setBoardValue: function(i,j,n){
+    setBoardValue: function (i, j, n) {
         this.sudokuBoard[i][j] = n;
     }
 }
 
 var boardButtons = {
-    reset: function(){
+    reset: function () {
         boardDisplay.clearErrorMessage();
-            var rows = document.getElementById("sudokuBoard").rows;
-            for(var i=0;i<9;i++){
-                var cells = rows[i].cells;
-                var tempArray = [];
-                for(var j=0;j<9;j++){
-                    cells[j].textContent = "";
-                }
+        var rows = document.getElementById("sudokuBoard").rows;
+        for (var i = 0; i < 9; i++) {
+            var cells = rows[i].cells;
+            var tempArray = [];
+            for (var j = 0; j < 9; j++) {
+                cells[j].textContent = "";
             }
+        }
     },
-    solve: function(){
+    solve: function () {
         boardDisplay.retrieveBoard();
-   //     sudoku.setBoard(boardDisplay.sudokuBoard);
-   //     sudoku.fillSingleValueBlanks();
+        //     sudoku.setBoard(boardDisplay.sudokuBoard);
+        //     sudoku.fillSingleValueBlanks();
         var solver = new Solver();
         solver.board = boardDisplay.sudokuBoard;
-        if(solver.solve()){
+        if (solver.solve()) {
             sudoku.board = solver.board;
             sudoku.displayBoard();
-        } else{
+        } else {
             boardDisplay.showErrorMessage("This Puzzle has no solution");
         }
     }
 }
 
-document.onkeyup = function(e) {
-    if(e.target.tagName === "TD"){
+document.onkeyup = function (e) {
+    if (e.target.tagName === "TD") {
         boardDisplay.retrieveBoard();
     }
 }
