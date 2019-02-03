@@ -4,7 +4,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-size: 19px;
   font-weight: bold;
-  background-color: #faceff;
+  background-color: #81C784;
 }
 
 h1, p {
@@ -80,4 +80,12 @@ table.sudoku tr:nth-child(3n) {
   text-align: center;
   font-size: 10px;
   margin-top: 20px;
+}
+
+.footer {
+  position: fixed;
+  font-size: 12px;
+  bottom: 0;
+  width: 100%;
+  color: white;
 }
