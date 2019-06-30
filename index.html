@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <h1>Sudoku Solver</h1>
+  <h2>Sudoku Solver</h2>
   <div class="viewport">
     <div class="wrapper">
       <table class="sudoku" id="sudokuBoard">
@@ -118,15 +118,20 @@
       </table>
     </div>
   </div>
-  <div class="error-message" id="error-container"></div>
-  <button class="solve" onclick="boardButtons.solve()">Solve</button>
+  <div id="error-message-container">
+    <div class="error-message" id="error-container"></div>
+  </div>
+  <div>
+    <button class="solve-button" onclick="boardButtons.solve()">Solve</button>
+    <button class="color-button" onclick="setRandomColor()">Color</button>
+  </div>
   <a href="#" onclick="boardButtons.reset()" class="resetButton">reset</a>
 
   <div class="footer">
     <p>Created with &#x2764; by Michael Xu</p>
   </div>
 
-  <script src="solverEasy.js"></script>
+  <script src="script.js"></script>
   <script src="solverBack.js"></script>
   <script src="boardDisplay.js"></script>
 </body>

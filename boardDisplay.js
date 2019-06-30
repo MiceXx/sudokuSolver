@@ -1,6 +1,28 @@
 var boardDisplay = {
+    sudokuBoard: [
+        [0, 8, 4, 0, 0, 5, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0, 0, 5, 0],
+        [0, 0, 7, 0, 9, 0, 0, 0, 4],
+        [7, 0, 5, 0, 8, 0, 0, 0, 0],
+        [0, 9, 0, 7, 0, 1, 0, 6, 0],
+        [0, 2, 1, 0, 4, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 4, 8, 0, 0],
+        [0, 0, 0, 0, 7, 0, 6, 9, 2],
+        [0, 0, 0, 6, 0, 3, 4, 7, 0]
+    ],
 
-    sudokuBoard: [],
+    displayBoard: function () {
+        var board = document.getElementById("sudokuBoard");
+        this.sudokuBoard.forEach(function (i, idx_i) {
+            var boardRow = board.rows[idx_i];
+            i.forEach(function (j, idx_j) {
+                var boardCell = boardRow.children[idx_j];
+                if (j !== 0) {
+                    boardCell.innerHTML = j;
+                }
+            });
+        });
+    },
 
     retrieveBoard: function () {
         this.clearErrorMessage();
@@ -27,7 +49,7 @@ var boardDisplay = {
     },
 
     showErrorMessage: function (message) {
-        document.getElementById("error-container").innerHTML = message;
+        document.getElementById("error-container").innerHTML = `<div id='error-message'>${message}</div>`
     },
 
     clearErrorMessage: function () {
@@ -45,7 +67,6 @@ var boardButtons = {
         var rows = document.getElementById("sudokuBoard").rows;
         for (var i = 0; i < 9; i++) {
             var cells = rows[i].cells;
-            var tempArray = [];
             for (var j = 0; j < 9; j++) {
                 cells[j].textContent = "";
             }
@@ -53,13 +74,11 @@ var boardButtons = {
     },
     solve: function () {
         boardDisplay.retrieveBoard();
-        //     sudoku.setBoard(boardDisplay.sudokuBoard);
-        //     sudoku.fillSingleValueBlanks();
         var solver = new Solver();
         solver.board = boardDisplay.sudokuBoard;
         if (solver.solve()) {
-            sudoku.board = solver.board;
-            sudoku.displayBoard();
+            boardDisplay.sudokuBoard = solver.board;
+            boardDisplay.displayBoard();
         } else {
             boardDisplay.showErrorMessage("This Puzzle has no solution");
         }
@@ -71,3 +90,5 @@ document.onkeyup = function (e) {
         boardDisplay.retrieveBoard();
     }
 }
+
+boardDisplay.displayBoard();

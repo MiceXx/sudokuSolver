@@ -1,21 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body {
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
   font-size: 19px;
   font-weight: bold;
-  background-color: #81C784;
+  background-color: rgb(252, 150, 138);
 }
 
-h1, p {
+h2, p {
   text-align: center;
-  font-weight: bold;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 table.sudoku {
-  border: 3px solid  #3498db;
+  border: 3px  groove #3498db;
   border-collapse: collapse;
-  margin: 20px auto;
+  margin: 10px auto;
   position: absolute;
   backface-visibility: hidden;
 }
@@ -23,19 +29,20 @@ table.sudoku {
 table.sudoku td {
   height: 2em;
   width: 2em;
-  border: 1px solid rgb(54, 53, 53);
+  border: 2px solid rgb(54, 53, 53);
+  background-color: white;
   text-align: center;
   outline: none;
 }
 
 table.sudoku td:nth-child(3n) {
-  border-right: 3px solid  #3498db;
+  border-right: 3px groove  #3498db;
 }
 table.sudoku tr:nth-child(3n) {
-  border-bottom: 3px solid  #3498db;
+  border-bottom: 3px groove  #3498db;
 }
 
-.solve {
+.solve-button {
   color:  #ffffff;
   border: none;
   font-size: 1em;
@@ -50,42 +57,85 @@ table.sudoku tr:nth-child(3n) {
   outline: none;
   width: 5em;
 }
-.solve:hover {
-  color: rgb(168, 167, 167);
-  background-color: #0d4164;
+.solve-button:hover {
+  color: rgb(34, 34, 34);
+  background-color: #5df864;
+}
+
+.color-button {
+  color:  #ffffff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border: none;
+  font-size: 1em;
+  padding: 4px;
+  margin: 4px auto;
+  background-color: #3498db;
+  display: block;
+  border: 2px solid #2e76a7;
+  transition-property: all;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  width: 5em;
+  background: green;
+
+}
+
+.color-button:hover {
+  background: -webkit-linear-gradient(135deg, red, orange , yellow, green, cyan, blue, violet); 
+  background: -o-linear-gradient(135deg, red, orange, yellow, green, cyan, blue, violet);
+  background: -moz-linear-gradient(135deg,  red,orange, yellow, green, cyan, blue, violet);
+  background: linear-gradient(135deg,  red,orange , yellow, green, cyan, blue, violet);
+
 }
 
 .viewport {
   perspective: 1800px;
-  height: 420px;
+  height: 400px;
 }
 
 .wrapper {
   transform-style: preserve-3d;
   backface-visibility: hidden;
   width: 20em;
-  margin: 10px auto;
+  margin: 0 auto;
   transition-property: transform;
   transition-duration: 0.5s;
 }
 
-.error-message{
+#error-message-container{
+ text-align: center;
+}
+
+#error-message{
+  display: inline-block;
+  padding: 5px;
+  margin: 2px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 5px;
+  border: 1px black solid;
   font-weight: bold;
-  color: red;
+  color: whtie;
   text-align: center;
 }
 
 .resetButton{
   display: block;
   text-align: center;
-  font-size: 10px;
-  margin-top: 20px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .footer {
   position: fixed;
+  background-color: grey;
   font-size: 12px;
   bottom: 0;
   width: 100%;
   color: white;
+}
+
+.footer > p {
+  padding: 0;
+  margin: 0;
 }
